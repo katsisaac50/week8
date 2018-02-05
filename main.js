@@ -19,7 +19,6 @@ const api_key = '2FuF3E9nyFeXWt3aHIfkxtKTUGn73v0w';
 const query = 'success';
 const giphyUrl = 'http://api.giphy.com/v1/gifs/search?api_key=' + api_key + '&q=' + query;
 
-console.log(giphyUrl);
 
 fetchJsonData(giphyUrl, function(giphyData) {
     console.log(giphyData.data);
