@@ -16,7 +16,7 @@ fetchJsonData("https://api.spacexdata.com/v2/launches", function(jsonData) {
 });
 
 const api_key = '2FuF3E9nyFeXWt3aHIfkxtKTUGn73v0w';
-const query = 'love';
+const query = 'success';
 const giphyUrl = 'http://api.giphy.com/v1/gifs/search?api_key=' + api_key + '&q=' + query;
 
 console.log(giphyUrl);
