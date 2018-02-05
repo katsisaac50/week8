@@ -12,7 +12,7 @@ function fetchJsonData(url, callBackFunction) {
 
 fetchJsonData("https://api.spacexdata.com/v2/launches", function(jsonData) {
     console.log(jsonData);
-    // document.getElementById("demo").innerHTML = jsonData[0].rocket.rocket_name;
+    document.getElementById("demo").innerHTML = jsonData[0].rocket.rocket_name;
 });
 
 const api_key = '2FuF3E9nyFeXWt3aHIfkxtKTUGn73v0w';
