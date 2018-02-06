@@ -45,8 +45,37 @@ fetchJsonData(giphyUrl, function(giphyData) {
         giphyImg.src = gif_url[i].images.preview_gif.url;
         url.innerHTML = gif_url[i].url;
 
+
     }
 
 
 
 });
+const astroData = "http://api.open-notify.org/astros.json"
+
+
+fetchJsonData(astroData, function(astro_Data) {
+    let AstronutsData = astro_Data.people;
+    for (let i = 0; i < AstronutsData.length; i++) {
+
+        console.log(AstronutsData[i].name);
+
+
+    }
+
+});
+
+function addFields() {
+    var number = document.getElementById("member").value;
+    var container = document.getElementById("container");
+    while (container.hasChildNodes()) {
+        container.removeChild(container.lastChild);
+    }
+    for (i = 0; i < 6; i++) {
+        container.appendChild(document.createTextNode(AstronutsData[i].name + (i + 1)));
+        var input = document.createElement("input");
+        input.type = "text";
+        container.appendChild(input);
+        container.appendChild(document.createElement("br"));
+    }
+}
