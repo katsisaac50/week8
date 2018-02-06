@@ -26,17 +26,25 @@ fetchJsonData(giphyUrl, function(giphyData) {
     let gif_url = [];
     let gifData = giphyData.data;
     for (let i = 0; i < gifData.length; i++) {
-        gif_url.push(gifData[i].url);
+        gif_url.push(gifData[i]);
     }
     for (let i = 0; i < gif_url.length; i++) {
         console.log(gif_url[i]);
+        let Title = document.createElement("h2");
+
         let container = document.createElement("div");
         let ul = document.createElement("ul");
         let url = document.createElement("li");
+        let giphyImg = document.createElement("img");
         document.querySelector("body").appendChild(container);
         container.appendChild(ul);
+        container.appendChild(Title);
         ul.appendChild(url);
-        url.innerHTML = gif_url[i];
+        container.appendChild(giphyImg);
+        Title.innerHTML = gif_url[i].title;
+        giphyImg.src = gif_url[i].images.preview_gif.url;
+        url.innerHTML = gif_url[i].url;
+
     }
 
 
