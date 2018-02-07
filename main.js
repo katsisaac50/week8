@@ -45,8 +45,8 @@ fetchJsonData(giphyUrl, function(giphyData) {
         giphyImg.src = gif_url[i].images.preview_gif.url;
         url.innerHTML = gif_url[i].url;
 
-
     }
+
 
 
 
@@ -65,17 +65,23 @@ fetchJsonData(astroData, function(astro_Data) {
 
 });
 
-function addFields() {
-    var number = document.getElementById("member").value;
+fetchJsonData(astroData, function(astro_Data2) {
+    console.log(astro_Data2);
+    let AstronutsData2 = astro_Data2.people;
+    for (let i = 0; i < AstronutsData2.length; i++) {
+
+        console.log(AstronutsData2[i].name);
+
+
+    }
+    var number = document.getElementById("astronut").value;
     var container = document.getElementById("container");
     while (container.hasChildNodes()) {
         container.removeChild(container.lastChild);
     }
     for (i = 0; i < 6; i++) {
-        container.appendChild(document.createTextNode(AstronutsData[i].name + (i + 1)));
-        var input = document.createElement("input");
-        input.type = "text";
-        container.appendChild(input);
+        container.appendChild(document.createTextNode((i + 1) + ". " + AstronutsData2[i].name));
+
         container.appendChild(document.createElement("br"));
     }
-}
+})
