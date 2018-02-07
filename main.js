@@ -30,8 +30,9 @@ fetchJsonData(giphyUrl, function(giphyData) {
     }
     for (let i = 0; i < gif_url.length; i++) {
         console.log(gif_url[i]);
-        let title = document.createElement("h2");
         let container = document.createElement("div");
+        container.className = "grid";
+        let title = document.createElement("h2");
         let ul = document.createElement("ul");
         let url = document.createElement("li");
         let giphyImg = document.createElement("img");
