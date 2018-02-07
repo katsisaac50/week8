@@ -30,18 +30,18 @@ fetchJsonData(giphyUrl, function(giphyData) {
     }
     for (let i = 0; i < gif_url.length; i++) {
         console.log(gif_url[i]);
-        let Title = document.createElement("h2");
-
+        let title = document.createElement("h2");
         let container = document.createElement("div");
         let ul = document.createElement("ul");
         let url = document.createElement("li");
         let giphyImg = document.createElement("img");
         document.querySelector("body").appendChild(container);
+
+        container.appendChild(title);
         container.appendChild(ul);
-        container.appendChild(Title);
         ul.appendChild(url);
         container.appendChild(giphyImg);
-        Title.innerHTML = gif_url[i].title;
+        title.innerHTML = gif_url[i].title;
         giphyImg.src = gif_url[i].images.preview_gif.url;
         url.innerHTML = gif_url[i].url;
 
