@@ -30,18 +30,18 @@ fetchJsonData(giphyUrl, function(giphyData) {
     }
     for (let i = 0; i < gif_url.length; i++) {
         console.log(gif_url[i]);
-        let container = document.createElement("div");
-        container.className = "grid";
+        let container2 = document.createElement("div");
+        container2.className = "grid";
         let title = document.createElement("h2");
         let ul = document.createElement("ul");
         let url = document.createElement("li");
         let giphyImg = document.createElement("img");
-        document.querySelector("body").appendChild(container);
+        document.querySelector("body").appendChild(container2);
 
-        container.appendChild(title);
-        container.appendChild(ul);
+        container2.appendChild(title);
+        container2.appendChild(ul);
         ul.appendChild(url);
-        container.appendChild(giphyImg);
+        container2.appendChild(giphyImg);
         title.innerHTML = gif_url[i].title;
         giphyImg.src = gif_url[i].images.preview_gif.url;
         url.innerHTML = gif_url[i].url;
@@ -55,25 +55,25 @@ fetchJsonData(giphyUrl, function(giphyData) {
 const astroData = "http://api.open-notify.org/astros.json"
 
 
-fetchJsonData(astroData, function(astro_Data) {
-    let AstronutsData = astro_Data.people;
-    for (let i = 0; i < AstronutsData.length; i++) {
 
-        console.log(AstronutsData[i].name);
+function addFields(url, callBackFunction) {
+    console.log(url);
 
+    const request1 = new XMLHttpRequest();
+    request1.addEventListener('load', function() {
+        callBackFunction(JSON.parse(request1.responseText));
+    });
 
-    }
-
-});
-
-fetchJsonData(astroData, function(astro_Data2) {
-    console.log(astro_Data2);
-    let AstronutsData2 = astro_Data2.people;
-    for (let i = 0; i < AstronutsData2.length; i++) {
-
-        console.log(AstronutsData2[i].name);
-
-
+    request1.open('get', url);
+    request1.send();
+}
+fetchJsonData("http://api.open-notify.org/astros.json", function(jsonData) {
+    console.log(jsonData);
+    let astronunts = [];
+    let astroData = jsonData.people;
+    for (let i = 0; i < astroData.length; i++) {
+        astronunts.push(astroData[i].name);
+        console.log(astronunts);
     }
     var number = document.getElementById("astronut").value;
     var container = document.getElementById("container");
@@ -81,8 +81,8 @@ fetchJsonData(astroData, function(astro_Data2) {
         container.removeChild(container.lastChild);
     }
     for (i = 0; i < 6; i++) {
-        container.appendChild(document.createTextNode((i + 1) + ". " + AstronutsData2[i].name));
+        container.appendChild(document.createTextNode((i + 1) + ". " + astroData[i].name));
 
         container.appendChild(document.createElement("br"));
     }
-})
+});
