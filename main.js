@@ -67,7 +67,7 @@ function addFields(url, callBackFunction) {
     request1.open('get', url);
     request1.send();
 }
-fetchJsonData("http://api.open-notify.org/astros.json", function(jsonData) {
+fetchJsonData("https://api.open-notify.org/astros.json", function(jsonData) {
     console.log(jsonData);
     let astronunts = [];
     let astroData = jsonData.people;
